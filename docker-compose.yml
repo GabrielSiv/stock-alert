@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  # Serviço do Banco de Dados Relacional
+  postgres:
+    image: postgres:15-alpine
+    container_name: stock_alert_postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: 2392s29dk3
+      POSTGRES_DB: stock_alert_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - .docker_data/postgres:/var/lib/postgresql/data
+
+  # Serviço do Cache/Fila
+  redis:
+    image: redis:7-alpine
+    container_name: stock_alert_redis_queue
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - .docker_data/redis:/data
+
+volumes:
+  postgres:
+  redis:
