@@ -19,3 +19,9 @@ export class ConflictError extends AppError {
     super(message, 409);
   }
 }
+
+export class ValidationError extends AppError {
+  constructor(public readonly errors: unknown) {
+    super('Erro de validação de dados.', 422);
+  }
+}
