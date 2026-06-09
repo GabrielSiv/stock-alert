@@ -1,5 +1,5 @@
 import { NotFoundError } from '../../shared/AppError.js';
-import { UserRepository } from './user-repository.js';
+import { UserRepository } from './user.repository.js';
 
 interface UserData {
   email: string;

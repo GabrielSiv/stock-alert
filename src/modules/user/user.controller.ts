@@ -1,7 +1,7 @@
 import type { FastifyRequest, FastifyReply } from 'fastify';
 import { z } from 'zod';
-import { UserService } from './user-service.js';
-import { UserRepository } from './user-repository.js';
+import { UserService } from './user.service.js';
+import { UserRepository } from './user.repository.js';
 import { ValidationError } from '../../shared/AppError.js';
 
 const userBodySchema = z.object({
