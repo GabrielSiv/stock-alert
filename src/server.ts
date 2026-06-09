@@ -3,10 +3,12 @@ import { ZodError } from 'zod';
 import { z } from 'zod';
 import { AppError, ValidationError } from './shared/AppError.js';
 import { userRoutes } from './modules/user/user.routes.js';
+import { alertRoutes } from './modules/alert/alert.routes.js';
 
 const app = Fastify({ logger: true });
 
 app.register(userRoutes, { prefix: '/users' });
+app.register(alertRoutes, { prefix: '/alerts' });
 
 app.setErrorHandler((error, _req, reply) => {
   if (error instanceof ValidationError) {
